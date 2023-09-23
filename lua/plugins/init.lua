@@ -71,7 +71,65 @@ require("lazy").setup({
     "echasnovski/mini.base16",
     "antosha417/nvim-lsp-file-operations"
   },
-  "nvim-lualine/lualine.nvim"
+  "nvim-lualine/lualine.nvim",
+  "sidebar-nvim/sidebar.nvim",
+
+  -- Utility
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function ()
+      require("toggleterm").setup()
+    end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function ()
+      require("gitsigns").setup()
+    end
+  },
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function ()
+      require("colorizer").setup()
+    end
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({})
+    end
+  },
+  {
+    "m4xshen/autoclose.nvim",
+    config = function ()
+      require("autoclose").setup()
+    end
+  },
+  {
+    "ghillb/cybu.nvim",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "nvim-lua/plenary.nvim"
+    },
+    config = function()
+      local ok, cybu = pcall(require, "cybu")
+      if not ok then
+        return
+      end
+      cybu.setup()
+      vim.keymap.set("n", "K", "<Plug>(CybuPrev)")
+      vim.keymap.set("n", "J", "<Plug>(CybuNext)")
+      vim.keymap.set({"n", "v"}, "<c-s-tab>", "<plug>(CybuLastusedPrev)")
+      vim.keymap.set({"n", "v"}, "<c-tab>", "<plug>(CybuLastusedNext)")
+    end
+  }
 })
 
 load_confs({

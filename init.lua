@@ -1,5 +1,7 @@
 local TAB_WIDTH = 2
 
+vim.opt.termguicolors = true
+
 require("plugins.init")
 require("key_maps.init")
 
