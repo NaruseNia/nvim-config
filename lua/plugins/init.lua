@@ -71,6 +71,13 @@ require("lazy").setup({
     "echasnovski/mini.base16",
     "antosha417/nvim-lsp-file-operations"
   },
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+  },
   "nvim-lualine/lualine.nvim",
   "sidebar-nvim/sidebar.nvim",
 
